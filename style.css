@@ -23,6 +23,10 @@ body {
 
 /* Header Styles */
 .header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--primary-blue);
     color: var(--white);
     padding: 1rem 2rem;
@@ -390,21 +394,80 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.mobile-menu-toggle {
+    display: none; /* Oculto em desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 100;
+    /* Removendo o absolute para torna-lo flexivel
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    */
+    margin-right: 15px;  /* Adicionar margem à direita para espaçamento */
+
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
         padding: 1rem;
+        position: relative;
     }
     
-    .header-left, .header-right {
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex; /* Mostrar o menu hambúrguer em mobile */
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .header-right {
+        display: none;
+        position: absolute;
+        top: 100%; /* Posiciona abaixo do header */
+        left: 0;
         width: 100%;
-        justify-content: center;
-        margin-bottom: 1rem;
+        flex-direction: column;
+        background-color: var(--primary-blue);
+        padding: 0;
+        z-index: 99;
     }
     
-    .hero h1 {
-        font-size: 2rem;
+    .header-right.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header-right .header-link {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: center;
+    }
+    
+    .header-right .header-link:last-child {
+        border-bottom: none;
     }
     
     .anniversary-badge {
