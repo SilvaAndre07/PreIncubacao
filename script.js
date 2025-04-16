@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Toggle da classe active no menu
         mobileMenu.classList.toggle('active');
         
+        // Atualizar atributo aria-expanded
+        const isExpanded = mobileMenu.classList.contains('active');
+        mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        
         // Efeito visual para o botão hambúrguer (opcional)
         const spans = this.querySelectorAll('span');
         if (mobileMenu.classList.contains('active')) {

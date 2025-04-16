@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrando 93 anos de história, inovação e conquistas de Assaí, Vale do Sol">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        img-src 'self' data:;
+        style-src 'self';
+        script-src 'self';
+    "> <!--Tomar cuidado se em algum momento tentarem implementar algo vindo de fora do site (vai bloquear)-->
+    <script src="script.js" defer></script>
     <link rel="icon" href="./src/logo_assai_93anos.png" type="image/png">
     <title>93 Anos de Assaí | Vale do Sol</title>
 </head>
@@ -13,14 +20,14 @@
     <!-- Header -->
     <header class="header">
         <div class="header-left">
-            <a href="https://valedosol.assai.pr.gov.br/" class="header-link">QUEM SOMOS</a>
-            <a href="https://valedosol.assai.pr.gov.br/">
+            <a href="https://valedosol.assai.pr.gov.br/" class="header-link" rel="noopener noreferrer">QUEM SOMOS</a>
+            <a href="https://valedosol.assai.pr.gov.br/" rel="noopener noreferrer">
                 <img src="./src/Logo_VDS_Negativo.png" alt="Vale do Sol Logo" class="logo">
             </a>
         </div>
         
         <!-- Botão de menu hambúrguer (visível apenas em mobile) -->
-        <div class="mobile-menu-toggle">
+        <div class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
             <span></span>
             <span></span>
             <span></span>
@@ -28,7 +35,7 @@
         
         <!-- Menu que será togglable em dispositivos móveis -->
         <div class="header-right" id="mobile-menu">
-            <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="header-link">Portal do Município de Assaí</a>
+            <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="header-link" rel="noopener noreferrer">Portal do Município de Assaí</a>
             <a href="https://valedosol.assai.pr.gov.br/visite-assai" class="header-link">Visite Assaí</a>
             <a href="#" class="header-link">Tradução</a>
             <a href="#" class="header-link">
@@ -45,7 +52,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="anniversary-badge">
-                <img src="./src/logo_assai_93original.png" alt="Brasão de Assaí">
+                <img src="./src/logo_assai_93original.png" alt="Logo de aniversário de 93 anos de Assaí.">
             </div>
             <h1>Assaí: 93 Anos de História, Inovação e Conquistas</h1>
             <p>Celebramos quase um século de desenvolvimento, com muito orgulho de nossa trajetória e dos reconhecimentos que conquistamos através da cooperação, inovação e compromisso com o futuro.</p>
@@ -293,22 +300,22 @@
         <h2 class="section-title">Momentos que fizeram história</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Cerimônia de Premiação">
+                <img src="/api/placeholder/400/300" alt="Cerimônia de Premiação" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Projetos da SCTI">
+                <img src="/api/placeholder/400/300" alt="Projetos da SCTI" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Eventos de Inovação">
+                <img src="/api/placeholder/400/300" alt="Eventos de Inovação" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Capacitação Digital">
+                <img src="/api/placeholder/400/300" alt="Capacitação Digital" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Iniciativas Tecnológicas">
+                <img src="/api/placeholder/400/300" alt="Iniciativas Tecnológicas" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Reconhecimentos Internacionais">
+                <img src="/api/placeholder/400/300" alt="Reconhecimentos Internacionais" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
