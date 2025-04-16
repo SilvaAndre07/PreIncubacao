@@ -77,7 +77,7 @@ body {
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -471,8 +471,8 @@ body {
     }
     
     .anniversary-badge {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
         font-size: 2.5rem;
     }
     
@@ -499,3 +499,33 @@ body {
         flex: 100%;
     }
 }
+
+@media (min-width: 1024px) {
+    .hero {
+        background-image: none;
+        position: relative;
+        overflow: hidden;
+        padding: 8rem 2rem; /* Aumentar o padding para dar mais espaço */
+        height: 600px; /* Definir uma altura fixa para melhor proporção */
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./src/castelo_assai.jpg') center/cover no-repeat;
+        z-index: -1;
+        background-position: center 20%; /* Ajusta a posição vertical para mostrar mais do castelo */
+    }
+    
+    .hero-content {
+        max-width: 800px; /* Aumentar a largura do conteúdo */
+        margin: 0 auto;
+    }
+}
+
