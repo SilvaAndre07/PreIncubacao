@@ -52,6 +52,11 @@ body {
     font-weight: 500;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
 .mobile-menu-toggle {
     display: none; /* Oculto em desktop */
     flex-direction: column;
@@ -109,10 +114,10 @@ body {
 }
 
 .anniversary-badge {
-    background-color: transparent; /* Remove o fundo amarelo */
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 2rem;
+    background-color: transparent;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;

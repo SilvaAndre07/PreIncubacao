@@ -24,4 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
             spans[2].style.transform = 'none';
         }
     });
+
+    // Atualiza o ano do copyright automaticamente
+    const currentYear = new Date().getFullYear();
+    document.getElementById('currentYear').textContent = currentYear;
 });
