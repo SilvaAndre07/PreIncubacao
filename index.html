@@ -1,58 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Celebrando 93 anos de história, inovação e conquistas de Assaí, Vale do Sol">
-    <link rel="stylesheet" href="style.css">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        img-src 'self' data:;
-        style-src 'self';
-        script-src 'self';
-    "> <!--Tomar cuidado se em algum momento tentarem implementar algo vindo de fora do site (vai bloquear)-->
-    <script src="script.js" defer></script>
-    <link rel="icon" href="./src/logo_assai_93anos.png" type="image/png">
-    <title>93 Anos de Assaí | Vale do Sol</title>
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Celebrando 93 anos de história, inovação e conquistas de Assaí, Vale do Sol">
+        <link rel="stylesheet" href="style.css">
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'self';
+            img-src 'self' data:;
+            style-src 'self';
+            script-src 'self' 'unsafe-inline';
+        "> <!--Tomar cuidado se em algum momento tentarem implementar algo vindo de fora do site (vai bloquear)-->
+        <script src="script.js" defer></script>
+        <link rel="icon" href="./src/logo_93anos_icone.png" type="image/png">
+        <title>93 Anos de Assaí | Vale do Sol</title>
+    </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-left">
-            <a href="https://valedosol.assai.pr.gov.br/" class="header-link">QUEM SOMOS</a>
-            <a href="https://valedosol.assai.pr.gov.br/" class="logo-link">
-                <img src="./src/Logo_VDS_Negativo.png" alt="Vale do Sol Logo" class="logo">
-            </a>
+        <div class="header-top"></div>
+        <div class="section-title">QUEM SOMOS</div>
+
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-placeholder">
+                    <img src="./src/Logo_VDS_NaoVazado.png" alt="Logo Vale do Sol" 
+                         decoding="async" 
+                         importance="high" 
+                         loading="eager">
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="nav-link" target="_blank" rel="noopener noreferrer">Portal do Município de Assaí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://valedosol.assai.pr.gov.br/visite-assai" class="nav-link" target="_blank" rel="noopener noreferrer" >Visite Assaí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank" rel="noopener noreferrer">Eventos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        
+
         <!-- Botão de menu hambúrguer (visível apenas em mobile) -->
         <div class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        
+
         <!-- Menu que será togglable em dispositivos móveis -->
         <div class="header-right" id="mobile-menu">
-            <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="header-link" rel="noopener noreferrer">Portal do Município de Assaí</a>
-            <a href="https://valedosol.assai.pr.gov.br/visite-assai" class="header-link">Visite Assaí</a>
-            <a href="#" class="header-link">Tradução</a>
-            <a href="#" class="header-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </a>
+            <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="header-link" target="_blank" rel="noopener noreferrer">Portal do Município de Assaí</a>
+            <a href="https://valedosol.assai.pr.gov.br/visite-assai" class="header-link" target="_blank" rel="noopener noreferrer">Visite Assaí</a>
+            <a href="#" class="header-link" target="_blank" rel="noopener noreferrer">Eventos</a>
         </div>
     </header>
-
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="anniversary-badge">
-                <img src="./src/logo_assai_93original.png" alt="Logo de aniversário de 93 anos de Assaí.">
+                <img src="./src/logo_93anos.png" alt="Logo de aniversário de 93 anos de Assaí.">
             </div>
             <h1>Assaí: 93 Anos de História, Inovação e Conquistas</h1>
             <p>Celebramos quase um século de desenvolvimento, com muito orgulho de nossa trajetória e dos reconhecimentos que conquistamos através da cooperação, inovação e compromisso com o futuro.</p>
@@ -65,121 +80,100 @@
         <div class="awards-grid">
             <div class="award-card">
                 <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Prêmio Inova Cidades">
+                    <img src="./src/inova_cidades.jpg" alt="Inova Cidades">
                 </div>
                 <div class="award-content">
                     <h3 class="award-title">Inova Cidades</h3>
-                    <span class="award-count">3x</span>
-                    <p>Reconhecimento por iniciativas inovadoras em gestão pública e tecnologia a serviço do cidadão.</p>
+                    <span class="award-count">Três vezes reconhecida por inovação!</span>
+                    <p>O município de Assaí foi 3 vezes reconhecido no Smart City Business Brazil Congress pelo projeto “Vale do Sol”, um ecossistema de inovação que vem transformando a educação e promovendo o desenvolvimento digital em Assaí. A premiação reforça o destaque da cidade no cenário nacional de cidades inteligentes.</p>
                 </div>
             </div>
 
             <div class="award-card">
                 <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Prêmio Inova Cidades">
-                </div>
-                <div class="award-content">
-                    <h3 class="award-title">Inova Cidades</h3>
-                    <span class="award-count">3x</span>
-                    <p>Reconhecimento por iniciativas inovadoras em gestão pública e tecnologia a serviço do cidadão.</p>
-                </div>
-            </div>
-
-            <div class="award-card">
-                <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Prêmio Inova Cidades">
-                </div>
-                <div class="award-content">
-                    <h3 class="award-title">Inova Cidades</h3>
-                    <span class="award-count">3x</span>
-                    <p>Reconhecimento por iniciativas inovadoras em gestão pública e tecnologia a serviço do cidadão.</p>
-                </div>
-            </div>
-
-            <div class="award-card">
-                <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Prêmio Inova Cidades">
-                </div>
-                <div class="award-content">
-                    <h3 class="award-title">Inova Cidades</h3>
-                    <span class="award-count">3x</span>
-                    <p>Reconhecimento por iniciativas inovadoras em gestão pública e tecnologia a serviço do cidadão.</p>
-                </div>
-            </div>
-
-            <div class="award-card">
-                <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Prêmio Inova Cidades">
-                </div>
-                <div class="award-content">
-                    <h3 class="award-title">Inova Cidades</h3>
-                    <span class="award-count">3x</span>
-                    <p>Reconhecimento por iniciativas inovadoras em gestão pública e tecnologia a serviço do cidadão.</p>
-                </div>
-            </div>
-            
-            <div class="award-card">
-                <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Prefeitura Empreendedora">
+                    <img src="./src/prefeitura_empreendedora.jpg" alt="Prefeitura Empreendedora">
                 </div>
                 <div class="award-content">
                     <h3 class="award-title">Prefeitura Empreendedora</h3>
-                    <span class="award-count">Nacional + Estadual</span>
-                    <p>Premiação do SEBRAE por práticas que fomentam o empreendedorismo e desenvolvimento econômico local.</p>
+                    <span class="award-count">Vencedor Nacional e Estadual</span>
+                    <p>Com o projeto “Assaí Tech - Empreendedorismo do Infantil ao Primeiro Emprego”, o município conquistou o prêmio nacional na categoria Empreendedorismo na Escola. A iniciativa promove educação empreendedora e tecnologia para mais de 3.700 alunos, fortalecendo a formação de jovens talentos e o desenvolvimento local.</p>
                 </div>
             </div>
             
             <div class="award-card">
                 <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Top7">
+                    <img src="./src/top7_assai.jpg" alt="Top7">
                 </div>
                 <div class="award-content">
-                    <h3 class="award-title">Top7</h3>
-                    <span class="award-count">1x</span>
-                    <p>Reconhecimento internacional que posiciona Assaí entre as cidades mais inteligentes do mundo.</p>
+                    <h3 class="award-title">Top7 Intelligent Communities</h3>
+                    <span class="award-count">Uma das 7 comunidades mais inteligentes do mundo</span>
+                    <p>Assaí foi reconhecida no ranking global do Intelligent Community Forum (ICF) como uma das sete comunidades mais inteligentes do mundo. O município se destaca por suas políticas inovadoras e pelo ecossistema de inovação Vale do Sol.</p>
                 </div>
             </div>
             
             <div class="award-card">
                 <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Cidades Digitais">
+                    <img src="./src/cidades_digitais.jpg" alt="Cidades Digitais">
                 </div>
                 <div class="award-content">
                     <h3 class="award-title">Prêmio Cidades Digitais</h3>
-                    <span class="award-count">3x</span>
-                    <p>Reconhecimento pela transformação digital e uso de tecnologia para melhorar serviços públicos.</p>
+                    <span class="award-count">3x vencedora</span>
+                    <p>Assaí foi premiada no Prêmio Cidades Digitais, destacando-se por suas iniciativas de transformação digital e inovação. A cidade foi reconhecida por integrar tecnologia em suas políticas públicas, oferecendo soluções digitais que melhoram a qualidade de vida dos cidadãos e promovem o desenvolvimento sustentável.</p>
                 </div>
             </div>
             
             <div class="award-card">
                 <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="GovTech">
+                    <img src="./src/selo_govtech.jpg" alt="GovTech">
                 </div>
                 <div class="award-content">
-                    <h3 class="award-title">Selo GovTech</h3>
-                    <span class="award-count">2x</span>
-                    <p>Certificação pela adoção de tecnologias inovadoras na administração pública.</p>
+                    <h3 class="award-title">Connected Smart Cities (CSC)</h3>
+                    <span class="award-count">Selo GovTech na categoria Prata</span>
+                    <p>Durante o evento Connected Smart Cities GovTech, Assaí foi reconhecida como destaque na implementação de tecnologias inovadoras para melhorar a gestão pública, a qualidade dos serviços e a eficiência do governo. O selo GovTech reconhece o uso de soluções tecnológicas para modernizar e transformar a administração pública.</p>
                 </div>
             </div>
             
             <div class="award-card">
                 <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Smart21">
+                    <img src="./src/smart21_assai.jpg" alt="Smart21">
                 </div>
                 <div class="award-content">
-                    <h3 class="award-title">Smart21</h3>
-                    <span class="award-count">3x</span>
-                    <p>Reconhecimento internacional como uma das 21 comunidades mais inteligentes do mundo.</p>
+                    <h3 class="award-title">Smart21 do ICF</h3>
+                    <span class="award-count">Reconhecimento internacional</span>
+                    <p>O município de Assaí foi reconhecido internacionalmente ao ser incluído na lista Smart21 Communities of 2023, promovida pelo Intelligent Community Forum (ICF), uma renomada instituição internacional com sede em Nova York que avalia cidades com base em inovação, inclusão social e desenvolvimento sustentável.</p>
                 </div>
             </div>
             
             <div class="award-card">
                 <div class="award-icon">
-                    <img src="/api/placeholder/80/80" alt="Prêmios Diversos">
+                    <img src="./src/separtec_valedosol.jpg" alt="Credenciamentos do Separtec">
                 </div>
                 <div class="award-content">
-                    <h3 class="award-title">Outros Reconhecimentos</h3>
-                    <p>Selo CSC, Cities of Services (3x), Selo Diamante de Transparência, Prêmios Separtec (2x), Selo Prata e Ouro da Sala do Empreendedor.</p>
+                    <h3 class="award-title">Credenciamentos do Separtec</h3>
+                    <span class="award-count">Referência Estadual em Inovação</span>
+                    <p>O município de Assaí, mais uma vez se destacou no cenário da inovação ao conquistar o maior número de credenciamentos municipais aprovados no Separtec. Entre os 188 ambientes promotores de inovação credenciados em todo o estado, apenas 25 foram propostos por prefeituras, com Assaí liderando esse grupo com três iniciativas aprovadas (dois Centros de Inovação do Vale do Sol, localizados no Colégio Conselheiro Carrão e no CEEP, e uma Agência de Inovação instalada na Secretaria Municipal de Ciência, Tecnologia e Inovação).</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon">
+                    <img src="./src/assai.jpg" alt="Selo Diamante de Transparência">
+                </div>
+                <div class="award-content">
+                    <h3 class="award-title">Selo Diamante em Transparência Pública</h3>
+                    <span class="award-count">Gestão aberta e acessível</span>
+                    <p>Assaí conquistou o Selo Diamante em Transparência Pública 2024, o mais alto reconhecimento nacional, entre apenas 253 municípios brasileiros. A premiação reforça o compromisso da gestão com uma administração aberta, responsável e acessível, coroando o avanço da cidade que já havia alcançado o Selo Prata em 2023.</p>
+                </div>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon">
+                    <img src="./src/parque-ikeda.jpg" alt="Selo Diamante de Transparência">
+                </div>
+                <div class="award-content">
+                    <h3 class="award-title">Demais reconhecimentos</h3>
+                    <span class="award-count">Assaí como um Modelo de Inovação</span>
+                    <p>Assaí vem se consolidando como um modelo de inovação e gestão eficiente, colecionando mais de 20 premiações nos últimos quatro anos. Entre os destaques, o Prefeito Michel Angelo Bomtempo recebeu o título de Prefeito Inovador 2024 pela Rede Cidade Digital, em reconhecimento ao uso estratégico da tecnologia para melhorar a vida da população. A cidade também foi homenageada com o Selo de Referência Prata do Sebrae pela excelência da Sala do Empreendedor no atendimento aos microempreendedores individuais (MEI), agora localizada na Agência de Inovação. Esses reconhecimentos somam-se a uma série de outras premiações regionais, nacionais e internacionais, que reafirmam o compromisso de Assaí com o desenvolvimento, a inclusão e a transformação digital.</p>
                 </div>
             </div>
         </div>
@@ -256,40 +250,40 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <span class="timeline-date">2021</span>
-                    <h3>Primeiro Reconhecimento Smart21</h3>
-                    <p>Assaí entra para o seleto grupo das 21 comunidades mais inteligentes do mundo, iniciando uma série de conquistas internacionais.</p>
+                    <h3>Criação da SECTI</h3>
+                    <p>Em 2021, Assaí realiza a criação da Secretaria Municipal de Ciência, Tecnologia e Inovação marcando o início da transformação tecnológica de Assaí, que passou a contar com ferramentas para fomentar a inovação, a pesquisa, o desenvolvimento tecnológico e a transformação digital.</p>
                 </div>
             </div>
             
             <div class="timeline-item">
                 <div class="timeline-content">
                     <span class="timeline-date">2022</span>
-                    <h3>Prêmio Inova Cidades</h3>
-                    <p>Reconhecimento pelas iniciativas inovadoras em gestão pública que melhoraram a qualidade de vida dos cidadãos.</p>
+                    <h3>Instituição do Vale do Sol e Conquista de Diversas Premiações</h3>
+                    <p>Em 2022, Assaí instituiu o Vale do Sol, um ecossistema inovador com foco em incentivar a inovação, a pesquisa, o desenvolvimento científico e tecnológico, além de promover a transformação digital. A iniciativa integra setores acadêmicos, produtivos e sociais, estimulando o empreendedorismo e a capacitação. Ainda em 2022, Assaí foi reconhecida com importantes prêmios, como o "Inova Cidades" pelo conceito "Ecossistema Regional de Inovação Suntech", o Prêmio Rede Cidade Digital, e o "Cities of Service", destacando-se como um modelo de inovação, tecnologia e gestão pública eficiente.</p>
                 </div>
             </div>
             
             <div class="timeline-item">
                 <div class="timeline-content">
                     <span class="timeline-date">2023</span>
-                    <h3>Top7 das Comunidades Mais Inteligentes</h3>
-                    <p>Assaí alcança o prestigiado Top7, destacando-se entre as cidades mais inovadoras e inteligentes do planeta.</p>
+                    <h3>Reconhecimento Internacional pela Inovação e Transformação Digital</h3>
+                    <p>Em 2023, Assaí consolidou sua posição como um polo de inovação e transformação digital, conquistando uma série de prêmios e reconhecimentos. O município foi vencedor do "Inova Cidades" com o conceito "Ecossistema de Inovação e Transformação: Cidade Pequena Também Pode Ser Inteligente", destacando-se pelo uso de tecnologias para melhorar a gestão e a qualidade de vida dos cidadãos. Além disso, Assaí recebeu o "Selo GovTech", o "Cities of Service" e novamente o "Prêmio Rede Cidade Digital", reconhecimentos que reforçam o compromisso da cidade com a inovação no setor público. No cenário internacional, Assaí foi incluída no ranking "Smart21", destacando-se como uma das 21 comunidades mais inteligentes do mundo, feito que se repetiu em 2024 e 2025. A cidade também foi agraciada com o "Prêmio Separtec", evidenciando o sucesso de suas iniciativas tecnológicas e de inovação no desenvolvimento urbano e social..</p>
                 </div>
             </div>
             
             <div class="timeline-item">
                 <div class="timeline-content">
                     <span class="timeline-date">2024</span>
-                    <h3>Prêmio Nacional Prefeitura Empreendedora</h3>
-                    <p>Reconhecimento nacional do SEBRAE pelas políticas de incentivo ao empreendedorismo e desenvolvimento local.</p>
+                    <h3>Assaí como exemplo em Inovação, Empreendedorismo e Transparência Pública</h3>
+                    <p>Em 2024, Assaí continuou a se destacar como um exemplo de inovação e transformação digital, recebendo diversos prêmios e reconhecimentos. A cidade foi vencedora do "Inova Cidades" com o conceito "Vale do Sol: Inovação e Transformação Digital para Pequenos Municípios" e conquistou o "Prêmio Rede Cidade Digital", o "Selo GovTech" e o "Selo CSC – Connected Smart Cities". Além disso, Assaí obteve o "Selo Prata Sala do Empreendedor", o "Selo Diamante em Transparência Pública" e se destacou com os prêmios "Prefeitura Empreendedora", tanto no âmbito estadual quanto nacional. A cidade também foi reconhecida internacionalmente, figurando entre as "21 Comunidades mais Inteligentes do Mundo" no "Smart21" e sendo eleita uma das "Top7 Intelligent Communities of the Year".</p>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-content">
                     <span class="timeline-date">2025</span>
-                    <h3>Prêmio Nacional Prefeitura Empreendedora</h3>
-                    <p>Reconhecimento nacional do SEBRAE pelas políticas de incentivo ao empreendedorismo e desenvolvimento local.</p>
+                    <h3>Excelência no desenvolvimento e Continuidade na Jornada Inovadora</h3>
+                    <p>Em 2025, Assaí reafirmou seu compromisso com o desenvolvimento, a inovação e o apoio ao empreendedorismo. A cidade conquistou o Selo de Referência Ouro da Sala do Empreendedor, concedido pelo Sebrae durante o evento WE SEBRAE em Curitiba, reconhecendo a excelência no atendimento e nos serviços oferecidos aos microempreendedores. No cenário internacional, Assaí foi, pelo terceiro ano consecutivo, selecionada entre as "21 Comunidades mais Inteligentes do Mundo" pelo Smart21, consolidando sua posição como referência em inovação urbana. E assim, o trabalho continua, impulsionando o progresso e a transformação da cidade.</p>
                 </div>
             </div>
         </div>
@@ -300,22 +294,28 @@
         <h2 class="section-title">Momentos que fizeram história</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Cerimônia de Premiação" loading="lazy" decoding="async">
+                <img src="./src/campus-uel.jpg" alt="GESTÃO TUTI BOMTEMPO ESTREITA AS RELAÇÕES COM A UEL E ESTÁ PRÓXIMO DE ANUNCIAR UM CAMPUS UNIVERSITÁRIO EM ASSAÍ" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Projetos da SCTI" loading="lazy" decoding="async">
+                <img src="./src/lei-transporte-universitario.jpg" alt="PREFEITO TUTI ENCAMINHA PROJETO DE LEI PARA AUXÍLIO DE TRANSPORTE UNIVERSITÁRIO" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Eventos de Inovação" loading="lazy" decoding="async">
+                <img src="./src/ouro-atendimento-mei.jpg" alt="ASSAÍ É OURO NO ATENDIMENTO AOS MICROPREENDEDORES INDIVIDUAIS (MEI)" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Capacitação Digital" loading="lazy" decoding="async">
+                <img src="./src/assai-geracao-emprego.jpg" alt="GERAÇÃO DE EMPREGO: 100 VAGAS PARA CONTRATAÇÃO IMEDIATA!" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Iniciativas Tecnológicas" loading="lazy" decoding="async">
+                <img src="./src/parceria-reafirmada-sebrae.jpg" alt="REAFIRMADA A PARCERIA COM O SEBRAE PARA ALAVANCAR O DESENVOLVIMENTO DE ASSAÍ" loading="lazy" decoding="async">
             </div>
             <div class="gallery-item">
-                <img src="/api/placeholder/400/300" alt="Reconhecimentos Internacionais" loading="lazy" decoding="async">
+                <img src="./src/desafio-liga-jovem.jpg" alt="ESTUDANTES DE ASSAÍ RECEBEM PREMIAÇÃO NO DESAFIO LIGA JOVEM" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-item">
+                <img src="./src/curso-prevestibular.jpg" alt="PREFEITURA OFERECE CURSO GRATUITO DE REVISÃO PARA VESTIBULARES" loading="lazy" decoding="async">
+            </div>
+            <div class="gallery-item">
+                <img src="./src/premio_sebrae_prefeitura_empreendedora.jpg" alt="PREFEITO TUTI COMPARTILHA O PRÊMIO SEBRAE NACIONAL PREFEITURA EMPREENDEDORA COM EDUCADORES E TODA POPULAÇÃO ASSAIENSE" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -330,18 +330,18 @@
             
             <div class="footer-column">
                 <h3 class="footer-title">Links Rápidos</h3>
-                <a href="https://valedosol.assai.pr.gov.br/" class="footer-link">Página Inicial</a>
-                <a href="https://valedosol.assai.pr.gov.br/quem-somos" class="footer-link">Quem Somos</a>
-                <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="footer-link">Portal do Município</a>
-                <a href="https://valedosol.assai.pr.gov.br/visite-assai" class="footer-link">Visite Assaí</a>
+                <a href="https://valedosol.assai.pr.gov.br/" class="footer-link" target="_blank" rel="noopener noreferrer">Página Inicial</a> <br>
+                <a href="https://assai.pr.gov.br/sobre" class="footer-link" target="_blank" rel="noopener noreferrer">Sobre Assaí</a> <br>
+                <a href="https://www.assai.pr.gov.br/" class="footer-link" target="_blank" rel="noopener noreferrer">Portal do Município</a> <br>
+                <a href="https://assai.pr.gov.br/cultura-assai" class="footer-link" target="_blank" rel="noopener noreferrer">Conheça Assaí</a>
             </div>
             
             <div class="footer-column">
                 <h3 class="footer-title">Contato</h3>
                 <p>Secretaria de Ciência, Tecnologia e Inovação</p>
                 <p>Prefeitura Municipal de Assaí</p>
-                <p>Email: contato@assai.pr.gov.br</p>
-                <p>Telefone: (43) 3262-1313</p>
+                <p>Email: secti@assai.pr.gov.br</p>
+                <p>Telefone: (43) 3262-8306</p>
             </div>
         </div>
         

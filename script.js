@@ -1,31 +1,151 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Seleciona o botão de toggle e o menu
+    // Código existente do menu mobile
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    // Adiciona evento de clique ao botão
-    mobileMenuToggle.addEventListener('click', function() {
-        // Toggle da classe active no menu
-        mobileMenu.classList.toggle('active');
-        
-        // Atualizar atributo aria-expanded
-        const isExpanded = mobileMenu.classList.contains('active');
-        mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
-        
-        // Efeito visual para o botão hambúrguer (opcional)
-        const spans = this.querySelectorAll('span');
-        if (mobileMenu.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -8px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            
+            const isExpanded = mobileMenu.classList.contains('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+            
+            const spans = this.querySelectorAll('span');
+            if (mobileMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -8px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    }
 
     // Atualiza o ano do copyright automaticamente
-    const currentYear = new Date().getFullYear();
-    document.getElementById('currentYear').textContent = currentYear;
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Fechar o menu quando clicar em um link (comportamento esperado em mobile)
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu .header-link');
+    if (mobileMenuLinks.length > 0 && mobileMenu) {
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    const spans = mobileMenuToggle.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    }
+
+    // ===== NOVA IMPLEMENTAÇÃO DE LIGHTBOX =====
+
+    // 1. Criar o HTML do lightbox diretamente no body
+    const lightboxHTML = `
+        <div class="image-lightbox" id="imageLightbox">
+            <div class="lightbox-content">
+                <img src="" alt="Imagem ampliada" class="lightbox-image">
+                <div class="lightbox-caption"></div>
+                <button class="lightbox-close" aria-label="Fechar imagem">&times;</button>
+            </div>
+        </div>
+    `;
+    
+    // Adicionar o HTML ao final do body
+    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+    
+    // 2. Obter referências para os elementos do lightbox
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    
+    // 3. Função para abrir o lightbox
+    function openLightbox(imgSrc, caption) {
+        const lightbox = document.getElementById('imageLightbox');
+        const lightboxImage = lightbox.querySelector('.lightbox-image');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+
+        lightboxImage.src = imgSrc;
+        lightboxCaption.textContent = caption;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+
+        // Adicionar classe active para animação
+        setTimeout(() => {
+            lightbox.classList.add('active');
+        }, 10);
+    }
+    
+    // 4. Função para fechar o lightbox
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+            lightboxImage.src = ''; // Limpar a fonte da imagem
+        }, 300);
+    }
+    
+    // 5. Adicionar evento de clique no botão de fechar
+    lightboxClose.addEventListener('click', closeLightbox);
+    
+    // 6. Fechar o lightbox ao clicar fora da imagem
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // 7. Fechar o lightbox com a tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+    
+    // 8. Adicionar eventos de clique em todas as imagens
+    function setupImageClickEvents() {
+        // Para imagens nos cards de prêmios
+        document.querySelectorAll('.award-icon img').forEach(img => {
+            // Não adicionar evento de clique para imagens placeholder
+            if (img.src.includes('placeholder')) {
+                return;
+            }
+
+            img.addEventListener('click', function () {
+                const imgSrc = this.src;
+                const cardTitle = this.closest('.award-card').querySelector('.award-title').textContent || 'Imagem do prêmio';
+                openLightbox(imgSrc, cardTitle);
+            });
+        });
+
+        // Para imagens na galeria
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', function () {
+                const imgSrc = this.src;
+                const imgAlt = this.alt || 'Imagem da galeria';
+                openLightbox(imgSrc, imgAlt);
+            });
+        });
+    }
+    
+    // 9. Inicializar os eventos de clique
+    setupImageClickEvents();
+    
+    // 10. Garantir que os eventos sejam adicionados mesmo em elementos carregados dinamicamente
+    const observer = new MutationObserver(setupImageClickEvents);
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Adicionar console log para debugging
+    console.log('Lightbox inicializado');
 });

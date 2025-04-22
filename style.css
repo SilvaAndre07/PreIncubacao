@@ -1,4 +1,7 @@
+/* Paleta de cores principal */
 :root {
+    --primary-color: #293b8e;
+    --accent-color: #f0a500;
     --primary-blue: #1e3a8a;
     --secondary-blue: #2563eb;
     --primary-yellow: #fbbf24;
@@ -8,146 +11,165 @@
     --white: #ffffff;
 }
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--white);
+    background-color: #f5f5f5;
     color: var(--dark-gray);
     line-height: 1.6;
 }
 
-/* Header Styles */
+/* ====== Header ====== */
 .header {
-    padding: 1rem 2rem;
+    width: 100%;
+    position: relative;
+    background-color: #F0F4F9;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-top {
+    background-color: var(--primary-color);
+    height: 8px;
+    position: relative;
+}
+
+.header-top::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background-color: var(--accent-color);
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Header e navegação */
+.header-main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-blue);
-    color: var(--white);
+    background-color: #E6EAF2;
+    padding: 15px 30px;
+    position: relative;
+}
+
+.logo-section {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo-section::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: -15px;
+    width: 8px;
+    height: calc(100% + 30px);
+    background-color: var(--primary-color);
+}
+
+.logo-placeholder {
+    width: 180px;
+    height: 60px;
+    display: flex;
     align-items: center;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.logo-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.header-right {
+/* Ajuste da navegação principal */
+.menu-section {
+    flex: 1;
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    justify-content: flex-end;
+    margin-right: 20px;
 }
 
-.header-link {
-    color: var(--white);
+/* Navigation */
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: var(--primary-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+    white-space: nowrap;
+    transition: color 0.3s;
 }
 
-.logo-link {
-    display: flex;
-    align-items: center;
+.nav-link:hover {
+    color: var(--accent-color);
 }
 
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
 .mobile-menu-toggle {
-    display: none; /* Oculto em desktop */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 21px;
     cursor: pointer;
     z-index: 100;
-    /* Removendo o absolute para torna-lo flexivel
     position: absolute;
     right: 20px;
-    top: 20px;
-    */
-    margin-right: 15px;  /* Adicionar margem à direita para espaçamento */
-
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
 }
 
 .mobile-menu-toggle span {
     display: block;
     height: 3px;
     width: 100%;
-    background-color: white;
+    background-color: var(--primary-color);
     border-radius: 3px;
     transition: all 0.3s ease;
 }
 
-.logo {
-    max-height: 60px;
+/* Mobile menu no desktop permanece escondido */
+.header-right {
+    display: none;
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./src/castelo_assai.jpg') center/cover no-repeat;
-    color: var(--white);
-    padding: 4rem 2rem;
-    text-align: center;
-    position: relative;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(30, 58, 138, 0.7);
-    z-index: -1;
-}
-
-.hero-content {
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.anniversary-badge {
-    background-color: transparent;
-    width: 250px;
-    height: 250px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.anniversary-badge img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); /* Adiciona um efeito de sombra sutil */
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Awards Section */
-.awards {
-    padding: 4rem 2rem;
-    background-color: var(--light-gray);
-}
-
+/* Section Titles */
 .section-title {
     text-align: center;
     font-size: 2rem;
@@ -165,6 +187,76 @@ body {
     margin: 0.5rem auto 0;
 }
 
+.header .section-title {
+    position: absolute;
+    top: -30px;
+    left: 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 4px 4px 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.header .section-title::after {
+    display: none;
+}
+
+/* ====== Hero Section ====== */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./src/castelo_assai.jpg') center/cover no-repeat;
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    background-position: center 25%;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.anniversary-badge {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.anniversary-badge img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ====== Awards Section ====== */
+.awards {
+    padding: 4rem 2rem;
+    background-color: var(--light-gray);
+}
+
 .awards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -176,9 +268,12 @@ body {
 .award-card {
     background-color: var(--white);
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .award-card:hover {
@@ -188,19 +283,85 @@ body {
 .award-icon {
     background-color: var(--primary-blue);
     color: var(--white);
-    height: 120px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    cursor: zoom-in; /* Cursor especial para indicar que a imagem pode ser ampliada */
 }
 
+.award-card:hover .award-icon::after {
+    opacity: 1;
+}
+
+/* Ajuste para imagens do award-icon */
 .award-icon img {
-    max-width: 80px;
-    max-height: 80px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.award-icon:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Criando um contêiner interno para a imagem */
+.award-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mudamos TODAS as imagens para "cover" */
+    object-position: center 40%; /* Posicionamento centralizado com leve ajuste para cima */
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    z-index: 0; /* Coloca a imagem atrás da sobreposição */
+}
+
+/* Estilo específico para imagem com formato diferente */
+.award-icon img[alt="Prefeitura Empreendedora"] {
+    object-position: center 30%;
+}
+
+.award-icon img[alt="Top7"] {
+    object-position: center 35%;
+}
+
+.award-icon img[alt="Cidades Digitais"] {
+    object-position: center 25%;
+}
+
+.award-icon img[alt="Selo Diamante de Transparência"] {
+    object-position: center top;
+}
+
+.award-card:hover .award-icon img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Se desejar remover o estilo de borda nas imagens do lightbox */
+.lightbox-image {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain; /* No lightbox usamos "contain" para mostrar a imagem completa */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    border: none; /* Removemos a borda para uma aparência mais limpa */
+    border-radius: 8px;
+    background-color: #fff; /* Fundo branco para imagens com transparência */
+    padding: 10px; /* Pequeno padding para melhorar a aparência */
 }
 
 .award-content {
     padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .award-title {
@@ -218,9 +379,10 @@ body {
     border-radius: 30px;
     font-weight: 700;
     margin-bottom: 1rem;
+    align-self: flex-start;
 }
 
-/* Contributions Section */
+/* ====== Contributions Section ====== */
 .contributions {
     padding: 4rem 2rem;
     background-color: var(--white);
@@ -249,7 +411,7 @@ body {
     background-color: var(--secondary-blue);
     width: 50px;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -259,7 +421,11 @@ body {
 .contribution-icon svg {
     width: 24px;
     height: 24px;
-    fill: var(--white);
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .contribution-text h3 {
@@ -267,7 +433,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Timeline Section */
+/* ====== Timeline Section ====== */
 .timeline {
     padding: 4rem 2rem;
     background-color: var(--light-gray);
@@ -336,7 +502,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Gallery */
+/* ====== Gallery ====== */
 .gallery {
     padding: 4rem 2rem;
     background-color: var(--white);
@@ -354,20 +520,135 @@ body {
     height: 200px;
     border-radius: 8px;
     overflow: hidden;
+    /* Adicionar essa propriedade para evitar distorção */
+    display: flex;
+    align-items: center;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+/* Ajuste específico para a imagem do transporte universitário */
+.gallery-item img[alt="PREFEITO TUTI ENCAMINHA PROJETO DE LEI PARA AUXÍLIO DE TRANSPORTE UNIVERSITÁRIO"] {
+    object-position: center 25%;
 }
 
-/* Footer */
+/* ====== Image Lightbox - Versão Melhorada ====== */
+.image-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Aumentamos o z-index para garantir que está acima de tudo */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.image-lightbox.active {
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: lightbox-zoom 0.3s ease forwards;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain; /* Mostrar imagem completa */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 8px;
+    background-color: #fff; /* Fundo branco para imagens com transparência */
+    padding: 10px; /* Pequeno padding para melhorar a aparência */
+}
+
+.lightbox-caption {
+    color: var(--white);
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 80%;
+    font-weight: 500;
+}
+
+@keyframes lightbox-zoom {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Responsividade para o lightbox */
+@media (max-width: 768px) {
+    .lightbox-close {
+        top: -30px;
+        right: 0;
+    }
+    
+    .lightbox-image {
+        max-height: 70vh;
+    }
+    
+    .lightbox-caption {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .gallery-item {
+        height: 180px;
+    }
+}
+
+/* ====== Footer ====== */
 .footer {
     background-color: var(--primary-blue);
     color: var(--white);
@@ -406,15 +687,20 @@ body {
 }
 
 .footer-link {
-    display: block;
+    display: inline;
     color: var(--white);
     text-decoration: none;
     margin-bottom: 0.5rem;
     transition: color 0.3s;
+    width: auto;
 }
 
 .footer-link:hover {
     color: var(--secondary-yellow);
+}
+
+.footer-column p {
+    margin-bottom: 0.5rem;
 }
 
 .copyright {
@@ -424,60 +710,87 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Styles */
+/* ====== Responsive Styles ====== */
 @media (max-width: 768px) {
-    .header {
-        padding: 1rem;
-        position: relative;
+    .header-main {
+        padding: 15px 20px;
     }
     
-    .header-left {
-        display: flex;
-        align-items: center;
+    .main-nav {
+        display: none !important;
     }
     
-    .mobile-menu-toggle {
-        display: flex; /* Mostrar o menu hambúrguer em mobile */
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
+    .logo-section::before {
+        left: -20px;
     }
     
-    .header-right {
-        display: none;
-        position: absolute;
-        top: 100%; /* Posiciona abaixo do header */
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: var(--primary-blue);
-        padding: 0;
-        z-index: 99;
-    }
-    
-    .header-right.active {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border-top: 1px solid rgba(0, 0, 0, 0.6);
-    }
-    
-    .header-right .header-link {
-        padding: 15px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-        width: 100%;
-        text-align: center;
-    }
-    
-    .header-right .header-link:last-child {
-        border-bottom: none;
+    .header .section-title {
+        left: 20px;
+        font-size: 10px;
+        padding: 4px 10px;
     }
     
     .anniversary-badge {
         width: 200px;
         height: 200px;
-        font-size: 2.5rem;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .header-right {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--white);
+        border-top: 3px solid var(--accent-color);
+        border-bottom: 3px solid var(--primary-color);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        z-index: 99;
+        transition: all 0.3s ease;
+    }
+    
+    .header-right.active {
+        display: flex;
+    }
+    
+    .header-right .header-link {
+        color: var(--primary-color);
+        padding: 15px 25px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        width: 100%;
+        text-align: left;
+        margin-left: 0;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+    }
+    
+    .header-right .header-link:hover {
+        background-color: rgba(41, 59, 142, 0.05);
+        color: var(--accent-color);
+        padding-left: 30px;
+    }
+
+    .header-right .header-link::after {
+        content: '›';
+        font-size: 20px;
+        margin-left: auto;
+        opacity: 0.5;
+        transition: opacity 0.2s;
+    }
+    
+    .header-right .header-link:hover::after {
+        opacity: 1;
+    }
+    
+    .header-right .header-link:last-child {
+        border-bottom: none;
     }
     
     .timeline-container::before {
@@ -502,34 +815,38 @@ body {
     .contribution-column {
         flex: 100%;
     }
+
+    .lightbox-close {
+        top: -30px;
+        right: 0;
+    }
+    
+    .lightbox-image {
+        max-height: 80vh;
+    }
 }
 
 @media (min-width: 1024px) {
     .hero {
-        background-image: none;
-        position: relative;
-        overflow: hidden;
-        padding: 8rem 2rem; /* Aumentar o padding para dar mais espaço */
-        height: 600px; /* Definir uma altura fixa para melhor proporção */
+        padding: 8rem 2rem;
+        height: 600px;
         display: flex;
         align-items: center;
+        background-position: center 25%;
     }
-    
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./src/castelo_assai.jpg') center/cover no-repeat;
-        z-index: -1;
-        background-position: center 20%; /* Ajusta a posição vertical para mostrar mais do castelo */
+}
+
+@media (min-width: 1600px) {
+    .hero {
+        background-size: 100% auto;
+        background-position: center 20%;
     }
-    
-    .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .hero {
+        background-position: center 30%;
+        padding: 3rem 2rem;
     }
 }
 
