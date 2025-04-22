@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Código existente do menu mobile
+    // Menu mobile
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
             
             const spans = this.querySelectorAll('span');
-            if (mobileMenu.classList.contains('active')) {
+            if (isExpanded) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                 spans[1].style.opacity = '0';
                 spans[2].style.transform = 'rotate(-45deg) translate(7px, -8px)';
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentYearElement.textContent = new Date().getFullYear();
     }
     
-    // Fechar o menu quando clicar em um link (comportamento esperado em mobile)
+    // Fecha o menu mobile quando um link é clicado
     const mobileMenuLinks = document.querySelectorAll('#mobile-menu .header-link');
     if (mobileMenuLinks.length > 0 && mobileMenu) {
         mobileMenuLinks.forEach(link => {
@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== NOVA IMPLEMENTAÇÃO DE LIGHTBOX =====
-
+    // Implementação de Lightbox
+    
     // 1. Criar o HTML do lightbox diretamente no body
     const lightboxHTML = `
         <div class="image-lightbox" id="imageLightbox">
@@ -58,8 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     `;
-    
-    // Adicionar o HTML ao final do body
     document.body.insertAdjacentHTML('beforeend', lightboxHTML);
     
     // 2. Obter referências para os elementos do lightbox
@@ -70,10 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 3. Função para abrir o lightbox
     function openLightbox(imgSrc, caption) {
-        const lightbox = document.getElementById('imageLightbox');
-        const lightboxImage = lightbox.querySelector('.lightbox-image');
-        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-
         lightboxImage.src = imgSrc;
         lightboxCaption.textContent = caption;
         lightbox.style.display = 'flex';
@@ -113,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // 8. Adicionar eventos de clique em todas as imagens
+    // 8. Configurar eventos de clique nas imagens
     function setupImageClickEvents() {
         // Para imagens nos cards de prêmios
         document.querySelectorAll('.award-icon img').forEach(img => {
@@ -122,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            img.addEventListener('click', function () {
+            img.addEventListener('click', function() {
                 const imgSrc = this.src;
                 const cardTitle = this.closest('.award-card').querySelector('.award-title').textContent || 'Imagem do prêmio';
                 openLightbox(imgSrc, cardTitle);
@@ -131,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Para imagens na galeria
         document.querySelectorAll('.gallery-item img').forEach(img => {
-            img.addEventListener('click', function () {
+            img.addEventListener('click', function() {
                 const imgSrc = this.src;
                 const imgAlt = this.alt || 'Imagem da galeria';
                 openLightbox(imgSrc, imgAlt);
@@ -142,10 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 9. Inicializar os eventos de clique
     setupImageClickEvents();
     
-    // 10. Garantir que os eventos sejam adicionados mesmo em elementos carregados dinamicamente
+    // 10. Garantir que os eventos sejam adicionados em elementos carregados dinamicamente
     const observer = new MutationObserver(setupImageClickEvents);
     observer.observe(document.body, { childList: true, subtree: true });
-    
-    // Adicionar console log para debugging
-    console.log('Lightbox inicializado');
 });
