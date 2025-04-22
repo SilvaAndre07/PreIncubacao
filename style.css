@@ -533,10 +533,19 @@ body {
     cursor: pointer;
 }
 
-/* Ajuste específico para a imagem do transporte universitário */
+/* Ajuste específico para a imagem da galeria */
 .gallery-item img[alt="PREFEITO TUTI ENCAMINHA PROJETO DE LEI PARA AUXÍLIO DE TRANSPORTE UNIVERSITÁRIO"] {
     object-position: center 25%;
 }
+
+.gallery-item img[alt="ASSAÍ É OURO NO ATENDIMENTO AOS MICROPREENDEDORES INDIVIDUAIS (MEI)"] {
+    object-position: center 25%;
+}
+
+.gallery-item img[alt="PREFEITO TUTI COMPARTILHA O PRÊMIO SEBRAE NACIONAL PREFEITURA EMPREENDEDORA COM EDUCADORES E TODA POPULAÇÃO ASSAIENSE"] {
+    object-position: center 25%;
+}
+
 
 /* ====== Image Lightbox - Versão Melhorada ====== */
 .image-lightbox {
