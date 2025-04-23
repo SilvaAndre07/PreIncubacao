@@ -22,12 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Atualiza o ano do copyright automaticamente
-    const currentYearElement = document.getElementById('currentYear');
-    if (currentYearElement) {
-        currentYearElement.textContent = new Date().getFullYear();
-    }
     
     // Fecha o menu mobile quando um link é clicado
     const mobileMenuLinks = document.querySelectorAll('#mobile-menu .header-link');
@@ -44,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+    }
+
+    // Atualiza o ano do copyright automaticamente
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
     }
 
     // Implementação de Lightbox
