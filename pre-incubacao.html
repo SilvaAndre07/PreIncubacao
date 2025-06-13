@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Assaí celebra 93 anos com trajetória de inovação, tecnologia e mais de 20 prêmios nacionais e internacionais. Uma referência em cidade inteligente e gestão pública moderna.">
+        <link rel="stylesheet" href="style.css">
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'self';
+            img-src 'self' data:;
+            style-src 'self';
+            script-src 'self' 'unsafe-inline';
+        "><!--Tomar cuidado se em algum momento tentarem implementar algo vindo de fora do site (vai bloquear)-->
+        <script src="script.js" defer></script>
+        <link rel="icon" href="./src/logo_93anos_icone.png" type="image/png">
+        <title>Pré-Incubação de Projetos | Vale do Sol</title>
+        
+        <!-- Schema.org markup para SEO -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "GovernmentOrganization",
+          "name": "Prefeitura Municipal de Assaí",
+          "url": "https://assai.pr.gov.br",
+          "logo": "https://assai.pr.gov.br/imagens/logo.png",
+          "description": "Assaí celebra 93 anos com trajetória de inovação, tecnologia e mais de 20 prêmios nacionais e internacionais. Uma referência em cidade inteligente e gestão pública moderna.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Assaí",
+            "addressRegion": "PR",
+            "addressCountry": "BR"
+          },
+          "sameAs": [
+            "https://www.facebook.com/prefeituraassai",
+            "https://www.instagram.com/prefeituraassai"
+          ],
+          "subOrganization": {
+            "@type": "GovernmentOrganization",
+            "name": "Secretaria de Ciência, Tecnologia e Inovação",
+            "email": "secti@assai.pr.gov.br",
+            "telephone": "+554332628306"
+          },
+          "event": {
+            "@type": "Event",
+            "name": "Assaí 93 Anos",
+            "startDate": "2025-05-01",
+            "endDate": "2025-05-05",
+            "description": "Celebração dos 93 anos do município de Assaí, destacando sua trajetória de inovação e reconhecimentos internacionais.",
+            "location": {
+              "@type": "Place",
+              "name": "Assaí",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Assaí",
+                "addressRegion": "PR",
+                "addressCountry": "BR"
+              }
+            }
+          }
+        }
+        </script>
+    </head>
+<body>
+        <!-- Header -->
+    <header class="header">
+        <div class="header-top"></div>
+        <div class="section-title">QUEM SOMOS</div>
+
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-placeholder">
+                    <img src="./src/Logo_VDS_NaoVazado.png" alt="Logo Vale do Sol" 
+                         decoding="async" 
+                         importance="high" 
+                         loading="eager">
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="nav-link" target="_blank" rel="noopener noreferrer">Portal do Município de Assaí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://valedosol.assai.pr.gov.br/visite-assai" class="nav-link" target="_blank" rel="noopener noreferrer" >Visite Assaí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank" rel="noopener noreferrer">Eventos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Botão de menu hambúrguer (visível apenas em mobile) -->
+        <div class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Menu que será togglable em dispositivos móveis -->
+        <div class="header-right" id="mobile-menu">
+            <a href="https://valedosol.assai.pr.gov.br/portal-do-municipio" class="header-link" target="_blank" rel="noopener noreferrer">Portal do Município de Assaí</a>
+            <a href="https://valedosol.assai.pr.gov.br/visite-assai" class="header-link" target="_blank" rel="noopener noreferrer">Visite Assaí</a>
+            <a href="#" class="header-link" target="_blank" rel="noopener noreferrer">Eventos</a>
+        </div>
+    </header>
+
+        <!-- Botão de menu hambúrguer (visível apenas em mobile) -->
+        <div class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Menu que será togglable em dispositivos móveis -->
+        <div class="header-right" id="mobile-menu">
+            <a href="#sobre" class="header-link">Sobre</a>
+            <a href="formulario.html" class="header-link">Enviar seu projeto</a>    
+        </div>
+    </header>
+    <section class="relative bg-blue-900 text-white py-20 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    
+<section class="hero">
+  <div class="hero-content">
+     <div class="anniversary-badge">
+                <img src="./src/Brasao_Assai.png" alt="Logo de aniversário de 93 anos de Assaí.">
+            </div>
+    <div class="hero-text">
+      <h1>Transforme sua ideia em um <span>projeto inovador</span></h1>
+      <p>Participe do programa de pré-incubação. Mentoria, estrutura e conexões para levar sua ideia ao próximo nível.</p>
+      <div class="hero-buttons">
+        <a href="#submissao" class="btn-primary">Enviar projeto</a>
+        <a href="comoFunciona.html" class="btn-secondary">Como funciona</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="home reveal">
+  <section class="welcome-section reveal">
+    <h1>Bem-vindo ao Programa de Pré-Incubação</h1>
+    <p>
+      Este é um espaço dedicado a apoiar projetos inovadores, especialmente aqueles que surgem em hackathons, competições e iniciativas acadêmicas.
+      Aqui você pode submeter sua ideia para análise, acompanhamento e potencial desenvolvimento.
+    </p>
+  </section>
+
+  <section class="sobre-section reveal ">
+    <h2>Sobre o Programa</h2>
+    <p>
+      O programa de pré-incubação Vale do Sol é uma iniciativa da Secretaria de Ciência, Tecnologia e Inovação de Assaí-PR
+      com o objetivo de apoiar ideias inovadoras nascentes em hackathons, universidades e eventos de inovação. 
+      Fornecemos suporte, orientação e visibilidade para transformar projetos promissores em soluções reais.
+    </p>
+  </section>
+
+  <section class="enviar-section reveal">
+    <h2>Pronto para submeter seu projeto?</h2>
+    <p>Envie sua proposta para avaliação da equipe técnica e tenha a chance de desenvolvê-la com apoio do ecossistema Vale do Sol.</p>
+    <div class = "btn-container"><a href="formulario.html" class="enviar-btn">Enviar seu projeto</a></div>
+  </section>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-title">Vale do Sol</h3>
+                <p>Ecossistema de Inovação e Transformação Digital de Assaí-PR.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Links Rápidos</h3>
+                <a href="https://valedosol.assai.pr.gov.br/" class="footer-link" target="_blank" rel="noopener noreferrer">Página Inicial</a> <br>
+                <a href="https://assai.pr.gov.br/sobre" class="footer-link" target="_blank" rel="noopener noreferrer">Sobre Assaí</a> <br>
+                <a href="https://www.assai.pr.gov.br/" class="footer-link" target="_blank" rel="noopener noreferrer">Portal do Município</a> <br>
+                <a href="https://assai.pr.gov.br/cultura-assai" class="footer-link" target="_blank" rel="noopener noreferrer">Conheça Assaí</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Contato</h3>
+                <p>Secretaria de Ciência, Tecnologia e Inovação</p>
+                <p>Prefeitura Municipal de Assaí</p>
+                <p>Email: secti@assai.pr.gov.br</p>
+                <p>Telefone: (43) 3262-8306</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; <span id="currentYear"></span> Prefeitura Municipal de Assaí - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
