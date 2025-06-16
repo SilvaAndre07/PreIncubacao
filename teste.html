@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefeitura Municipal de Assaí - Inovando a cada nascer do Sol</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1e40af',
+                        'secondary-blue': '#3b82f6',
+                        'light-blue': '#93c5fd',
+                        'accent-gold': '#f59e0b',
+                        'deep-blue': '#1e3a8a',
+                        'sky-blue': '#0ea5e9'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'fade-in-down': 'fadeInDown 1s ease-out',
+                        'slide-in-left': 'slideInLeft 1s ease-out',
+                        'slide-in-right': 'slideInRight 1s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fadeSlideUp': 'fadeSlideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        fadeSlideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-white font-sans overflow-x-hidden">
+    ' '<!-- Navigation -->
+    <nav class="navbar bg-white/95 backdrop-blur-md shadow-lg" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 flex-shrink-0">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary-blue to-secondary-blue rounded-xl flex items-center justify-center shadow-lg">
+                        <img src="./src/Brasao_Assai.png" alt="Logo Prefeitura" class="w-6 h-6 sm:w-8 sm:h-8">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-primary-blue font-bold text-lg sm:text-xl">Assaí</span>
+                        <span class="text-gray-500 text-xs font-medium hidden sm:block">Prefeitura Municipal</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative">
+                        Página Inicial
+                    </a>
+                    <a href="#news" class="nav-link text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative">
+                        Eventos
+                    </a>
+                    <a href="#jornal" class="nav-link text-gray-700 hover:text-primary-blue font-medium transition-all duration-300 relative">
+                        Suporte
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 rounded-xl text-gray-700 hover:text-primary-blue hover:bg-gray-100 transition-all duration-300 flex-shrink-0" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="#home" class="mobile-nav-link block px-4 py-3 text-gray-700 hover:text-primary-blue hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">
+                    <i class="fas fa-home mr-3 w-5 text-center"></i>Página Inicial
+                </a>
+                <a href="#news" class="mobile-nav-link block px-4 py-3 text-gray-700 hover:text-primary-blue hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">
+                    <i class="fas fa-newspaper mr-3 w-5 text-center"></i>Notícias
+                </a>
+                <a href="#jornal" class="mobile-nav-link block px-4 py-3 text-gray-700 hover:text-primary-blue hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium">
+                    <i class="fas fa-video mr-3 w-5 text-center"></i>Jornal Assahi
+                </a>
+            </div>
+        </div>
+    </nav>
+<section class="relative text-white h-[1000px] px-8 py-16 text-center bg-[url('./src/castelo_assai.jpg')] bg-cover bg-no-repeat bg-[center_10%]">
+
+  <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+  <div class="relative z-10 max-w-[600px] mx-auto flex flex-col gap-2 mt-[150px]">
+    <div class="w-32 mx-auto mt-20">
+      <img src="./src/Brasao_Assai.png" alt="Logo de aniversário de 93 anos de Assaí.">
+    </div>
+      <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+        Transforme sua ideia em um <span class="text-yellow-400">projeto inovador</span>
+      </h1>
+      <p class="mt-4 text-lg">
+        Participe do programa de pré-incubação. Mentoria, estrutura e conexões para levar sua ideia ao próximo nível.
+      </p>
+
+      <div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#submissao" class="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition">
+          Enviar projeto
+        </a>
+        <a href="comoFunciona.html" class="border border-yellow-400 text-yellow-400 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition">
+          Como funciona
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- reveal -->
+
+<!-- reveal -->
+
+<div class="reveal max-w-full mx-auto bg-white  rounded-mdr">
+  <section class="reveal bg-[#f4f8fb] py-20 px-5 font-sans max-w-[960px] mx-auto text-left rounded-2xl mt-10 mb-5">
+    <h1 class="text-center text-4xl text-[#2c3e50] mb-5">Bem-vindo ao Programa de Pré-Incubação</h1>
+    <p class="px-6 text-[1.1rem] text-[#555] leading-relaxed">
+      Este é um espaço dedicado a apoiar projetos inovadores, especialmente aqueles que surgem em hackathons, competições e iniciativas acadêmicas.
+      Aqui você pode submeter sua ideia para análise, acompanhamento e potencial desenvolvimento.
+    </p>
+  </section>
+
+  <section class="bg-white py-10 px-10 max-w-[960px] mx-auto mb-5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] text-left reveal">
+    <h2 class="text-center text-3xl text-[#003366] mb-4">Sobre o Programa</h2>
+    <p>
+      O programa de pré-incubação Vale do Sol é uma iniciativa da Secretaria de Ciência, Tecnologia e Inovação de Assaí-PR
+      com o objetivo de apoiar ideias inovadoras nascentes em hackathons, universidades e eventos de inovação. 
+      Fornecemos suporte, orientação e visibilidade para transformar projetos promissores em soluções reais.
+    </p>
+  </section>
+
+  <section class="bg-[#e0efff] max-w-[960px] mx-auto py-10 px-10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] text-left reveal mb-10">
+    <h2 class="text-center text-3xl text-[#003366] mb-4">Pronto para submeter seu projeto?</h2>
+    <p>Envie sua proposta para avaliação da equipe técnica e tenha a chance de desenvolvê-la com apoio do ecossistema Vale do Sol.</p>
+    <div class = "text-center mt-4"><a href="#formulario" class="inline-block mt-5 px-6 py-3 bg-secondary-blue text-white rounded-lg no-underline font-bold transition-colors duration-300 hover:bg-[#293b8e]">Enviar seu projeto</a></div>
+  </section>
+</div>
+
+
+<!-- reveal -->
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white py-16 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-gold to-yellow-500 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-city text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Prefeitura Municipal de Assaí</h3>
+                            <p class="text-blue-200">Inovando a cada nascer do Sol</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 max-w-md">Trabalhando incansavelmente para o desenvolvimento e bem-estar de todos os cidadãos assaienses, construindo um futuro próspero e sustentável.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-blue-600 hover:bg-blue-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-pink-600 hover:bg-pink-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-red-600 hover:bg-red-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-green-600 hover:bg-green-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contato</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-accent-gold"></i>
+                            <span class="text-gray-300">contato@assai.pr.gov.br</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-accent-gold"></i>
+                            <span class="text-gray-300">(43) 3262-1234</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-accent-gold"></i>
+                            <span class="text-gray-300">Centro, Assaí - PR</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Links Úteis</h3>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-300 hover:text-white transition-colors duration-300">Portal da Transparência</a>
+                        <a href="#" class="block text-gray-300 hover:text-white transition-colors duration-300">Licitações</a>
+                        <a href="#" class="block text-gray-300 hover:text-white transition-colors duration-300">Concursos</a>
+                        <a href="#" class="block text-gray-300 hover:text-white transition-colors duration-300">Ouvidoria</a>
+                    </div>
+                </div>
+            </div> 
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Prefeitura Municipal de Assaí. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+<style>
+    /* Menu mobile melhorado */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 40;
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Animação do hamburger melhorada */
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .hamburger span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: currentColor;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* Overlay para mobile */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 35;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Navbar fixo melhorado */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Hero section responsivo */
+        .hero-section {
+            min-height: 100vh;
+            min-height: 100dvh; /* Para dispositivos móveis modernos */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(59, 130, 246, 0.6) 50%, rgba(14, 165, 233, 0.4) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Centralizar logo */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* Melhorias de responsividade */
+        @media (max-width: 640px) {
+            .hero-section {
+                min-height: 100vh;
+                padding-top: 80px;
+            }
+            
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+            
+            .text-responsive-xl {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .text-responsive-2xl {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+            
+            .text-responsive-lg {
+                font-size: 1.125rem;
+                line-height: 1.4;
+            }
+            
+            .logo-responsive {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .btn-responsive {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 768px) {
+            .text-responsive-xl {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .text-responsive-2xl {
+                font-size: 3rem;
+                line-height: 1.1;
+            }
+            
+            .text-responsive-lg {
+                font-size: 1.25rem;
+                line-height: 1.4;
+            }
+            
+            .logo-responsive {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .text-responsive-xl {
+                font-size: 3rem;
+                line-height: 1.2;
+            }
+            
+            .text-responsive-2xl {
+                font-size: 4rem;
+                line-height: 1.1;
+            }
+            
+            .text-responsive-lg {
+                font-size: 1.5rem;
+                line-height: 1.4;
+            }
+            
+            .logo-responsive {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Prevenção de overflow horizontal */
+        .container-safe {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        /* Melhorias de performance */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Estados de foco melhorados */
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+</style>
+    <script src="main.js"></script>
+</body>
+</html>

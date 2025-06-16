@@ -140,3 +140,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new MutationObserver(setupImageClickEvents);
     observer.observe(document.body, { childList: true, subtree: true });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal-visible");
+      } else {
+        entry.target.classList.remove("reveal-visible");
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+  });
+});
